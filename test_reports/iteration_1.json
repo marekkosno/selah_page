@@ -1,0 +1,31 @@
+{
+  "summary": "First iteration full-stack testing of SELAH landing page. Backend: 12/12 pytest cases passed (health, newsletter subscribe with duplicate detection + case-insensitive dedupe, contact form with validation, MongoDB persistence verified for newsletter and contact_messages collections). Frontend: all routes render with required data-testids, language switcher toggles hero copy PL<->EN and persists via localStorage 'selah_lang', footer terms/privacy hrefs change per language (/regulamin & /polityka-prywatnosci for PL; /terms & /privacy-policy for EN), PL terms page has exactly 20 numbered sections, EN terms + EN privacy + PL privacy pages all render with their data-testids, newsletter form submits/clears/shows toast and HTML5 'required' blocks empty submission, contact form submits/clears all 3 fields and shows toast, App Store / Google Play badges are <div> with aria-disabled='true' and no href (not clickable) with 'COMING SOON' label, FAQ accordion items 1-5 present and open/close on click (data-state toggles closed<->open). Database persistence confirmed by direct motor query (collections 'newsletter' and 'contact_messages' both received documents with uuid id, lang, created_at). No critical or minor issues found.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Backend `logger` is referenced inside `/api/newsletter/subscribe` and `/api/contact` BEFORE `logger = logging.getLogger(__name__)` is initialised at module bottom. Currently works because the module is fully loaded before any request, but ordering is fragile — move the logging.basicConfig + logger init above the route definitions for clarity.",
+    "`StatusCheck.timestamp` is stored as ISO string after model_dump override, but `get_status_checks` re-parses with `datetime.fromisoformat` only when value is str; consider normalising on write/read to avoid mixed types.",
+    "Newsletter dedupe normalises with `email.lower().strip()` only when checking — for stored docs the EmailStr already lowercases the domain but not the local part, which could allow case-variant duplicates if a future code path bypasses the lowercasing. Consider a unique index on `newsletter.email` for hard guarantee.",
+    "CORS `allow_origins='*'` with `allow_credentials=True` is invalid per CORS spec; browsers will reject credentialed requests. Restrict origins for production (selah.pl)."
+  ],
+  "updated_files": [
+    "/app/backend/tests/__init__.py",
+    "/app/backend/tests/backend_test.py"
+  ],
+  "success_rate": { "backend": "100%", "frontend": "100%" },
+  "test_credentials": "N/A — no auth in this app",
+  "seed_data_creation": "Inserted a few TEST_-prefixed records into MongoDB collections 'newsletter' and 'contact_messages' via the public API during testing (random uuid emails). Counts after run: newsletter=2+, contact_messages=2+. Safe to delete.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Backend test file at /app/backend/tests/backend_test.py covers /api/health, /api/newsletter/subscribe (valid/duplicate/case-insensitive/invalid/missing), /api/contact (valid/invalid email/missing email/short message/missing message/no-name allowed). Frontend smoke covered: routes /regulamin /polityka-prywatnosci /terms /privacy-policy /; language switcher toggles + localStorage persistence; newsletter+contact submission + clearing + toast; FAQ accordion open/close; store badges non-clickable. If retesting, note that toggling language to EN persists in localStorage, so initial subtitle on subsequent reloads will be EN unless localStorage is cleared.",
+  "rca of the issue": "N/A — no issues found."
+}

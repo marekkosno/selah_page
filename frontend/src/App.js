@@ -1,55 +1,53 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
+import React from "react";
+import { LanguageProvider, useLang } from "@/i18n/LanguageContext";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from "@/components/ui/sonner";
+import Home from "@/pages/Home";
+import LegalPage from "@/pages/LegalPage";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
+const RoutedApp = () => {
+  const { lang } = useLang();
   return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      {/* Polish legal routes */}
+      <Route path="/regulamin" element={<LegalPage type="terms" forceLang="pl" />} />
+      <Route path="/polityka-prywatnosci" element={<LegalPage type="privacy" forceLang="pl" />} />
+      {/* English legal routes */}
+      <Route path="/terms" element={<LegalPage type="terms" forceLang="en" />} />
+      <Route path="/privacy-policy" element={<LegalPage type="privacy" forceLang="en" />} />
+      {/* Generic redirects so users land on the right legal page in their language */}
+      <Route
+        path="/legal/terms"
+        element={<Navigate to={lang === "pl" ? "/regulamin" : "/terms"} replace />}
+      />
+      <Route
+        path="/legal/privacy"
+        element={<Navigate to={lang === "pl" ? "/polityka-prywatnosci" : "/privacy-policy"} replace />}
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 };
 
 function App() {
   return (
-    <div className="App">
+    <LanguageProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
+        <RoutedApp />
+        <Toaster
+          position="bottom-center"
+          theme="dark"
+          toastOptions={{
+            style: {
+              background: "#131B2A",
+              color: "#F4F0E6",
+              border: "1px solid rgba(212,175,55,0.25)",
+            },
+          }}
+        />
       </BrowserRouter>
-    </div>
+    </LanguageProvider>
   );
 }
 
