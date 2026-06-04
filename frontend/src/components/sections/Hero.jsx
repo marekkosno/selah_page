@@ -29,9 +29,9 @@ const Hero = () => {
       </div>
 
       <div className="selah-container relative w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 lg:gap-16 items-center">
           {/* Left: copy */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
+          <div className="md:col-span-7 order-2 md:order-1">
             <Reveal>
               <span data-testid="hero-eyebrow" className="selah-label inline-block">
                 {t.hero.eyebrow}
@@ -52,7 +52,7 @@ const Hero = () => {
             </Reveal>
 
             <Reveal delay={360}>
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <div className="mt-10 flex flex-row flex-wrap gap-3 sm:gap-4">
                 <a href="#newsletter" data-testid="hero-cta-primary" className="selah-btn-primary">
                   {t.hero.ctaPrimary} <ArrowRight size={16} />
                 </a>
@@ -84,9 +84,9 @@ const Hero = () => {
           </div>
 
           {/* Right: phone mockup */}
-          <div className="lg:col-span-5 order-1 lg:order-2">
+          <div className="md:col-span-5 order-1 md:order-2">
             <Reveal delay={180}>
-              <PhoneMockup className="w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[360px]" />
+              <PhoneMockup className="w-full max-w-[260px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[360px]" />
             </Reveal>
           </div>
         </div>
