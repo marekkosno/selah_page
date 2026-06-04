@@ -35,8 +35,10 @@ const FAQ = () => {
                     <AccordionTrigger className="text-left font-serif text-xl md:text-2xl text-selah-text hover:text-selah-gold hover:no-underline py-6">
                       {item.q}
                     </AccordionTrigger>
-                    <AccordionContent className="font-sans text-base text-selah-muted leading-relaxed pb-6 max-w-2xl">
-                      {item.a}
+                    <AccordionContent className="font-sans text-base text-selah-muted leading-relaxed pb-6 max-w-2xl space-y-4">
+                      {Array.isArray(item.a)
+                        ? item.a.map((p, i) => <p key={i}>{p}</p>)
+                        : item.a}
                     </AccordionContent>
                   </AccordionItem>
                 ))}

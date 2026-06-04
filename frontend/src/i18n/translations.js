@@ -112,7 +112,11 @@ export const translations = {
         },
         {
           q: "Czy SELAH jest darmowy?",
-          a: "Aplikacja oferuje funkcje podstawowe oraz funkcje premium dostępne w subskrypcji. Szczegóły dostępne będą przed zakupem w App Store / Google Play.",
+          a: [
+            "Tak — SELAH jest darmowy przez 7 dni. W tym czasie masz pełen, nieograniczony dostęp do wszystkich funkcji aplikacji.",
+            "Po okresie próbnym aplikacja przechodzi w wersję bezpłatną z limitem 3 sesji dziennie.",
+            "Jeśli chcesz korzystać bez limitów, możesz w dowolnym momencie wykupić abonament — szczegóły i cena są prezentowane przed zakupem w App Store lub Google Play.",
+          ],
         },
         {
           q: "Co to znaczy „SELAH”?",
@@ -241,7 +245,14 @@ export const translations = {
         { q: "Do I need an account?", a: "No. SELAH does not require an account or an email address for the core features." },
         { q: "Which devices are supported?", a: "The app is being designed for iOS and Android. Launching on the App Store and Google Play." },
         { q: "Is the app for religious people only?", a: "It works for anyone wanting to focus. Scripture quotes can be used for prayer or simply as moments of reflection." },
-        { q: "Is SELAH free?", a: "There are core features available for free, and premium features available through a subscription. Details are shown before purchase in App Store / Google Play." },
+        {
+          q: "Is SELAH free?",
+          a: [
+            "Yes — SELAH is free for the first 7 days. During the trial you get full, unlimited access to every feature.",
+            "After the trial, the app switches to a free tier limited to 3 sessions per day.",
+            "If you want to use SELAH without limits, you can subscribe at any time — the price and details are presented before purchase in the App Store or Google Play.",
+          ],
+        },
         { q: "What does “SELAH” mean?", a: "The word “SELAH” appears in the Psalms. Its meaning is not fully known — it is often interpreted as a pause, a stop, a moment of silence to reflect on what has just been said." },
       ],
     },
