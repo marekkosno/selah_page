@@ -20,8 +20,8 @@ export const translations = {
       title: ["Skup się głębiej.", "Realizuj plany skuteczniej."],
       subtitle:
         "SELAH to prosta aplikacja-timer, która znacząco zwiększa Twoją efektywność. Pracujesz w rytmie krótkich, intensywnych sesji bez rozpraszaczy, robisz świadomą przerwę z chwilą wyciszenia lub modlitwy — i wracasz do zadań z większą energią. Dzięki temu kończysz to, co zaplanowałeś.",
-      ctaPrimary: "Powiadom mnie o premierze",
-      ctaSecondary: "Zobacz, jak działa",
+      ctaPrimary: "Zobacz, jak działa",
+      ctaSecondary: "Skontaktuj się",
       comingSoon: "Wkrótce",
       onAppStore: "App Store",
       onGooglePlay: "Google Play",
@@ -180,8 +180,8 @@ export const translations = {
       title: ["Focus deeper.", "Get your plans done."],
       subtitle:
         "SELAH is a simple timer app that meaningfully boosts your effectiveness. You work in short, intense sessions without distractions, take a mindful break with a moment of stillness or prayer — and return to your tasks with renewed energy. That's how you actually finish what you planned.",
-      ctaPrimary: "Notify me at launch",
-      ctaSecondary: "See how it works",
+      ctaPrimary: "See how it works",
+      ctaSecondary: "Get in touch",
       comingSoon: "Coming soon",
       onAppStore: "App Store",
       onGooglePlay: "Google Play",

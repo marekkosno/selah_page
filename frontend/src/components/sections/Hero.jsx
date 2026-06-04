@@ -53,10 +53,10 @@ const Hero = () => {
 
             <Reveal delay={360}>
               <div className="mt-10 flex flex-row flex-wrap gap-3 sm:gap-4">
-                <a href="#newsletter" data-testid="hero-cta-primary" className="selah-btn-primary">
+                <a href="#how" data-testid="hero-cta-primary" className="selah-btn-primary">
                   {t.hero.ctaPrimary} <ArrowRight size={16} />
                 </a>
-                <a href="#how" data-testid="hero-cta-secondary" className="selah-btn-secondary">
+                <a href="#contact" data-testid="hero-cta-secondary" className="selah-btn-secondary">
                   {t.hero.ctaSecondary}
                 </a>
               </div>

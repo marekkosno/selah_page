@@ -55,11 +55,11 @@ const Header = () => {
         <div className="flex items-center gap-3">
           <LanguageSwitcher className="hidden sm:inline-flex" />
           <a
-            href="#newsletter"
+            href="#contact"
             data-testid="header-cta"
             className="hidden md:inline-flex selah-btn-primary py-2.5 px-5 text-xs"
           >
-            {t.nav.notifyMe}
+            {t.nav.contact}
           </a>
           <button
             type="button"
@@ -94,11 +94,11 @@ const Header = () => {
               <LanguageSwitcher />
             </div>
             <a
-              href="#newsletter"
+              href="#contact"
               onClick={() => setOpen(false)}
               className="selah-btn-primary"
             >
-              {t.nav.notifyMe}
+              {t.nav.contact}
             </a>
           </div>
         </div>
