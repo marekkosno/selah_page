@@ -1,0 +1,128 @@
+{
+  "theme": "Dark with warm gold/beige accents (Archetype 5: Luxury / Archetype 1: Organic & Earthy)",
+  "vibe": "Meditative, spiritual, calm, stillness, modern, refined, clear typography",
+  "colors": {
+    "background_primary": "#0A0E17",
+    "background_secondary": "#131B2A",
+    "surface": "#1C273D",
+    "text_primary": "#F4F0E6",
+    "text_secondary": "#9AA3B5",
+    "accent_primary": "#D4AF37",
+    "accent_secondary": "#E2D1B3",
+    "accent_hover": "#C5A059",
+    "border_subtle": "rgba(226, 209, 179, 0.1)"
+  },
+  "typography": {
+    "heading_font": "Cormorant Garamond",
+    "heading_fallback": "serif",
+    "body_font": "Manrope",
+    "body_fallback": "sans-serif",
+    "rules": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-serif tracking-tight text-[#F4F0E6] leading-tight",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-serif tracking-tight text-[#F4F0E6]",
+      "h3": "text-xl sm:text-2xl font-serif text-[#D4AF37]",
+      "body": "text-base md:text-lg font-sans leading-relaxed text-[#9AA3B5]",
+      "label": "text-xs uppercase tracking-[0.2em] text-[#E2D1B3] font-semibold"
+    }
+  },
+  "layout_spacing": {
+    "section_padding": "py-20 md:py-32",
+    "container_padding": "px-6 md:px-12 lg:px-24 max-w-7xl mx-auto",
+    "bento_grid": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-6 md:gap-8",
+    "bento_item_large": "col-span-1 md:col-span-8 lg:col-span-8 row-span-2",
+    "bento_item_medium": "col-span-1 md:col-span-4 lg:col-span-4 row-span-2",
+    "bento_item_small": "col-span-1 md:col-span-4 lg:col-span-4 row-span-1"
+  },
+  "components": {
+    "primary_button": "bg-[#D4AF37] hover:bg-[#C5A059] text-[#0A0E17] font-semibold font-sans rounded-none px-8 py-4 transition-all duration-300 flex items-center justify-center gap-2",
+    "secondary_button": "bg-transparent border border-[#D4AF37]/50 hover:border-[#D4AF37] text-[#D4AF37] font-sans rounded-none px-8 py-4 transition-all duration-300",
+    "glass_header": "fixed top-0 w-full z-50 bg-[#0A0E17]/80 backdrop-blur-xl border-b border-[#E2D1B3]/10 transition-all duration-300",
+    "card": "relative overflow-hidden bg-[#131B2A] border border-[#E2D1B3]/5 p-8 lg:p-12 group hover:border-[#D4AF37]/20 transition-all duration-500 rounded-2xl",
+    "input_field": "w-full bg-[#1C273D] border border-[#E2D1B3]/10 text-[#F4F0E6] px-6 py-4 rounded-none focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all placeholder:text-[#9AA3B5]"
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.pexels.com/photos/176103/pexels-photo-176103.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "hero",
+        "description": "Cozy ambiance with books and coffee cup in shadows, for meditative hero background"
+      },
+      {
+        "url": "https://images.pexels.com/photos/27537385/pexels-photo-27537385.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "features_grid",
+        "description": "Monochrome zen stone stack for 'Skupienie / Focus' feature"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1753729213561-0fd9e4669d15?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwxfHxmb2N1cyUyMGRlc2slMjB3YXJtJTIwbGlnaHR8ZW58MHx8fHwxNzgwNTczMzc5fDA&ixlib=rb-4.1.0&q=85",
+        "category": "features_grid",
+        "description": "Dimly lit corner desk illuminated by warm lamp for 'Timer sesji' feature"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwzfHxjYWxtJTIwbW9ybmluZyUyMHJlYWRpbmclMjBib29rfGVufDB8fHx8MTc4MDU3MzM3OXww&ixlib=rb-4.1.0&q=85",
+        "category": "features_grid",
+        "description": "Open book beside teacup for 'Cytaty z Pisma Świętego' feature"
+      }
+    ]
+  },
+  "pages": {
+    "home": [
+      {
+        "section": "Header",
+        "content": "Logo (SELAH), Nav Links, Language Switcher (PL/EN auto-detect), CTA"
+      },
+      {
+        "section": "Hero",
+        "content": "Headline 'SELAH – Skupienie i Modlitwa', Subheadline 'Prosta aplikacja pomagająca budować rytm pracy, wyciszenia, modlitwy i odpoczynku.', CTA 'Powiadom mnie o premierze', App Store / Google Play 'Coming Soon' badges. Heavy image overlay (bg-[#0A0E17]/60) over the hero image."
+      },
+      {
+        "section": "What is SELAH",
+        "content": "Text-heavy poetic description focusing on the rhythm of work and rest in intervals."
+      },
+      {
+        "section": "How it works (4 Steps)",
+        "content": "Step flow: 1. Skup się (Focus) 2. Przerwa (Break) 3. Refleksja (Reflection) 4. Odpoczynek (Rest). Use vertical timeline or sequential cards with gold accents."
+      },
+      {
+        "section": "Features Grid (8 Items)",
+        "content": "Bento Grid containing: Timer sesji skupienia, Wybór czasu trwania, Krótkie przerwy, Dłuższa przerwa po cyklach, Statystyki, Raporty postępów, Osiągnięcia, Cytaty z Pisma Świętego. Use icons (lucide-react) and images for some cards."
+      },
+      {
+        "section": "Benefits",
+        "content": "Lepsze zarządzanie czasem, spokojny rytm, ograniczenie rozproszeń, regularność, połączenie skupienia z modlitwą."
+      },
+      {
+        "section": "Privacy First",
+        "content": "Message emphasizing 'No account, no email required for core features'. Minimalist lock icon."
+      },
+      {
+        "section": "FAQ",
+        "content": "Accordion (Shadcn UI) with common questions."
+      },
+      {
+        "section": "Newsletter & Contact",
+        "content": "Form to subscribe for launch. Contact via email: MCS_KONTAKT@HOTMAIL.COM. Use Shadcn forms."
+      },
+      {
+        "section": "Footer",
+        "content": "Links to /regulamin and /polityka-prywatnosci. Copyright 2026 SELAH.pl"
+      }
+    ],
+    "legal": [
+      "/regulamin",
+      "/polityka-prywatnosci"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install and configure 'lucide-react' for calm, thin-stroke icons.",
+    "Install Google Fonts 'Cormorant Garamond' (for headings) and 'Manrope' (for body text). Add them to tailwind.config.js.",
+    "Use pure HTML/Tailwind for the landing page layout (Bento Grids, Hero). Avoid Shadcn generic 'Card' for creative layouts.",
+    "Use Shadcn UI primarily for the interactive bits: Accordion (FAQ), Input/Form (Newsletter/Contact), Select (Language Switcher).",
+    "Make sure the PL/EN language switcher uses simple context or i18n logic based on the user's navigator.language if possible, defaulting to PL for 'pl' and EN for others.",
+    "Ensure the hero image has a significant overlay (bg-[#0A0E17]/60 or a gradient) so the light text has minimum 4.5:1 contrast ratio.",
+    "For the Bento Grid layout, use Mode A: The Tetris Grid strategy (asymmetrical span logic with generous gaps like gap-6 or gap-8).",
+    "All interactive elements MUST have `data-testid` attributes (e.g., `data-testid=\"newsletter-submit\"`).",
+    "The contact email to display is MCS_KONTAKT@HOTMAIL.COM.",
+    "Ensure page supports Next.js/React standard routing to /regulamin and /polityka-prywatnosci which will house standard text components.",
+    "Keep animations subtle. Use Framer Motion for soft fade-ins and slow upward drifts (e.g., y: 20 -> y: 0, opacity: 0 -> 1, duration: 0.8s) when sections scroll into view."
+  ]
+}
