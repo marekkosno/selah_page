@@ -1,12 +1,31 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
+
+// Map of equivalent legal slugs across languages.
+const LEGAL_SLUG_MAP = {
+  "/regulamin": { pl: "/regulamin", en: "/terms" },
+  "/terms": { pl: "/regulamin", en: "/terms" },
+  "/polityka-prywatnosci": { pl: "/polityka-prywatnosci", en: "/privacy-policy" },
+  "/privacy-policy": { pl: "/polityka-prywatnosci", en: "/privacy-policy" },
+};
 
 const LanguageSwitcher = ({ className = "" }) => {
   const { lang, setLang } = useLang();
+  const location = useLocation();
+  const navigate = useNavigate();
   const opts = [
     { code: "pl", label: "PL" },
     { code: "en", label: "EN" },
   ];
+
+  const handleSelect = (code) => {
+    setLang(code);
+    const map = LEGAL_SLUG_MAP[location.pathname];
+    if (map && map[code] && map[code] !== location.pathname) {
+      navigate(map[code]);
+    }
+  };
 
   return (
     <div
@@ -22,7 +41,7 @@ const LanguageSwitcher = ({ className = "" }) => {
             key={o.code}
             type="button"
             data-testid={`lang-${o.code}`}
-            onClick={() => setLang(o.code)}
+            onClick={() => handleSelect(o.code)}
             aria-pressed={active}
             className={[
               "px-3 py-1 text-xs uppercase tracking-[0.18em] font-sans rounded-full transition-all duration-300",
