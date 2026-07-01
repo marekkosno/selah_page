@@ -68,13 +68,14 @@ const Hero = () => {
                   testid="hero-appstore-badge"
                   icon={<Apple size={18} />}
                   label={t.hero.onAppStore}
-                  soon={t.hero.comingSoon}
+                  caption={t.hero.downloadOn}
+                  href="https://apps.apple.com/br/app/selah-skupienie-i-modlitwa/id6775883461"
                 />
                 <StoreBadge
                   testid="hero-googleplay-badge"
                   icon={<Play size={16} />}
                   label={t.hero.onGooglePlay}
-                  soon={t.hero.comingSoon}
+                  caption={t.hero.comingSoon}
                 />
               </div>
               <p className="mt-6 text-xs uppercase tracking-[0.22em] text-selah-muted">
@@ -95,18 +96,39 @@ const Hero = () => {
   );
 };
 
-const StoreBadge = ({ icon, label, soon, testid }) => (
-  <div
-    data-testid={testid}
-    className="inline-flex items-center gap-3 rounded-2xl border border-selah-beige/15 bg-selah-bg2/60 backdrop-blur-sm px-4 py-3 cursor-not-allowed select-none"
-    aria-disabled="true"
-  >
-    <span className="text-selah-beige">{icon}</span>
-    <div className="leading-tight">
-      <p className="text-[10px] uppercase tracking-[0.24em] text-selah-muted">{soon}</p>
-      <p className="text-sm font-sans text-selah-text">{label}</p>
+const StoreBadge = ({ icon, label, caption, testid, href }) => {
+  const base =
+    "inline-flex items-center gap-3 rounded-2xl border px-4 py-3 select-none transition-all duration-300";
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-testid={testid}
+        className={`${base} border-selah-gold/40 bg-selah-bg2/70 backdrop-blur-sm hover:border-selah-gold hover:bg-selah-bg2 hover:-translate-y-0.5`}
+      >
+        <span className="text-selah-gold">{icon}</span>
+        <div className="leading-tight text-left">
+          <p className="text-[10px] uppercase tracking-[0.24em] text-selah-muted">{caption}</p>
+          <p className="text-sm font-sans text-selah-text">{label}</p>
+        </div>
+      </a>
+    );
+  }
+  return (
+    <div
+      data-testid={testid}
+      className={`${base} border-selah-beige/15 bg-selah-bg2/60 backdrop-blur-sm cursor-not-allowed`}
+      aria-disabled="true"
+    >
+      <span className="text-selah-beige">{icon}</span>
+      <div className="leading-tight">
+        <p className="text-[10px] uppercase tracking-[0.24em] text-selah-muted">{caption}</p>
+        <p className="text-sm font-sans text-selah-text">{label}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Hero;
